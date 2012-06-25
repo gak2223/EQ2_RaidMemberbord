@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>削除</title>
+		<link type="text/css" href="../script/css/style2.css" rel="stylesheet" />
+	</head>
+	<body>
+		<strong>以下のデータを削除します</strong>
+		<br>
+		<strong>開催日: {{ data.kaisaibi }}({{youbi}})</strong>
+		<br>
+		<br>
+		<form id="dogform" action="/delete/post" method="post">
+			<div>名前：
+				<input type="text" class="text" name="chara_name" value="{{ data.chara_name|escape }}" disabled="disabled" >
+			</div>
+			<div>クラス：
+				<input type="text" class="text" name="chara_class" value="{{ data.chara_class|escape }}" disabled="disabled" >
+			</div>
+			<div>参加：
+				<input type="text" class="text" name="sanka" value="{{ data.sanka|escape }}" disabled="disabled" >
+			</div>
+			<div>コメント:<br>
+				<textarea name="comment_text" rows="6" cols="30" disabled="disabled" >{{ data.comment_text|escape }}</textarea>
+			</div>
+			<div>
+				<input type="submit" value="削除" />
+				<input type="button" value="戻る" / onClick="location.href='../insert?kaisaibi={{ data.kaisaibi }}'">
+			</div>
+			<div>
+				<input type="hidden" name="kaisaibi" value="{{ data.kaisaibi }}"/>
+				<input type="hidden" name="sankaid" value="{{ data.key.id }}"/>
+			</div>
+		</form>
+	</body>
+</html>
+

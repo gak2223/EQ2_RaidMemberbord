@@ -1,0 +1,48 @@
+application: netgamesanka
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /insert
+  script: insert.py
+
+- url: /insert.*
+  script: insert.py
+
+- url: /adds
+  script: insert.py
+
+- url: /adds.*
+  script: insert.py
+
+- url: /edit
+  script: edit.py
+
+- url: /edit.*
+  script: edit.py
+
+- url: /edit/post.*
+  script: edit.py
+
+- url: /delete
+  script: delete.py
+
+- url: /delete.*
+  script: delete.py
+
+- url: /delete/post.*
+  script: delete.py
+
+- url: /script
+  static_dir: script
+
+- url: /test
+  script: test.py
+
+- url: /post/.*
+  script: main.py
+
+- url: /.*
+  script: main.py
+

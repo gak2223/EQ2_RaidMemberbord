@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<title>編集</title>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+		<script type="text/javascript" src="../script/jquery/jQselectable.js"></script>
+		<script type="text/javascript" src="../script/jquery/jquery.validate.min.js"></script>
+		<script type="text/javascript" src="../script/jquery/additional-methods.js"></script>
+		<script type="text/javascript" src="../script/jquery/messages_ja.js"></script>
+		<script type="text/javascript" src="../script/jquery/jquery.selectable.js"></script>
+		<script type="text/javascript" src="../script/jquery/jquery.validateform.js"></script>
+		<link type="text/css" href="../script/css/style.css" rel="stylesheet"/>
+		<link type="text/css" href="../script/css/style2.css" rel="stylesheet"/>
+		<link type="text/css" href="../script/skin/selectable/style.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<strong>以下のデータを修正します</strong>
+		<br>
+		<strong>開催日: {{ data.kaisaibi }}({{ youbi }})</strong>
+		<br>
+		<br>
+		<form id="dogform" action="/edit/post" method="post">
+			<div>名前：
+				<input type="text" class="required text" name="chara_name" id="chara_name" value="{{ data.chara_name|escape }}">
+			</div>
+			<div>
+				クラス：<select name="chara_class" id="chara_class" class="selectable">
+				{{ clstag|safe }}
+				</select>
+			</div>
+			<div>参加：
+				{{ snktag|safe }}
+			</div>
+			<div>コメント:<br>
+				<textarea name="comment_text" rows="6" cols="30" >{{ data.comment_text|escape }}</textarea>
+			</div>
+			<div>
+				<input type="submit" value="修正" />
+				<input type="button" value="戻る" / onClick="location.href='../insert?kaisaibi={{ data.kaisaibi }}'">
+			</div>
+			<div>
+				<input type="hidden" name="kaisaibi" value="{{ data.kaisaibi }}"/>
+				<input type="hidden" name="sankaid" value="{{ data.key.id }}"/>
+			</div>
+		</form>
+	</body>
+</html>
+

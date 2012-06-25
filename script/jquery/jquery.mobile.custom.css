@@ -1,0 +1,11 @@
+/* テキストを省略せずに表示する */
+.ui-header .ui-title,            /* ヘッダー */
+.ui-footer .ui-title,            /* フッター */
+.ui-btn-inner,                /* ボタン */
+.ui-li-heading,                /* リスト見出し */
+.ui-li .ui-btn-text a.ui-link-inherit,    /* リンクリスト */
+.ui-li-desc                /* リスト詳細 */
+{
+	overflow: visible;
+	white-space: normal;
+}

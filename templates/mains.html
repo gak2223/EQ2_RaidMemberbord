@@ -1,0 +1,37 @@
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+		<title>DoGRaid出欠申請ページ</title>
+		<script type="text/javascript" src="/script/jquery/jquery-1.6.4.min.js"></script> 
+		<script type="text/javascript" src="/script/jquery/jquery-setting.js"></script> 
+		<link rel="stylesheet" href="/script/jquery/jquery.mobile-1.1.0.min.css" />
+		<script type="text/javascript" src="/script/jquery/jquery.mobile-1.1.0.min.js"></script>
+		<script type="text/javascript" src="/script/jquery/jquery.mobile.datebox-1.0.1.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="/script/jquery/jquery.mobile.datebox-1.0.1.min.css" /> 
+		<script type="text/javascript" src="/script/jquery/jquery.mobile.datebox.i8n.jp.js"></script>
+		<link rel="stylesheet" href="/script/jquery/jquery.mobile.custom.css" />
+	</head>
+	<body>
+		<div data-role="page" data-theme="b">
+			<div data-role="header" data-theme="b" data-position="fixed">
+    			<h1>開催日指定</h1>
+  			</div>
+  			<div data-role="content">
+				<form id="dogform" action="/post" method="post">
+					<fieldset data-role="fieldcontain">
+						<div>
+							<label for="mydate">開催日</label>
+							<input name="kaisaibi" id="mydate" type="date" data-role="datebox" value = {{defdate}} data-options='{ "calTodayButton": true,"minDays": 10,"maxDays": 10, "mode": "calbox", "disableManualInput": true,"pickPageButtonTheme": "c","pickPageTodayButtonTheme": "b"}'}'>
+						</div>
+						<div>
+							<input type="submit" value="日程決定" data-theme="b" />
+						</div>
+					</fieldset>
+				</form>
+			</div>
+			<div data-role="footer" data-theme="b" data-position="fixed">
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,89 @@
+form{background: #ddd;width:400px;}
+	form div{padding: 10px 20px;}
+
+input, select, textarea {
+	border:1px solid #777;
+	padding: 5px;
+	color: #000;
+	background: #fff;
+	border-radius: 5px;
+
+	/* Webkit */
+	/*
+	background: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		from(#eee),
+		to(#fff)
+	);
+	*/
+	-webkit-border-radius: 5px;
+	-webkit-box-shadow: 1px 1px 1px #fff;
+
+	/* Firefox */
+	-moz-border-radius: 5px;
+	/*
+	background: -moz-linear-gradient(
+		top,
+		#eee,
+		#fff
+	);
+	*/
+	-moz-border-radius: 5px;
+	-moz-box-shadow: 1px 1px 1px #fff;
+
+	/* IE */
+	filter:progid:DXImageTransform.Microsoft.gradient
+		(startColorstr=#ffeeeeee,endColorstr=#ffffffff);
+	zoom: 1;   
+	behavior: url(/script/css/pie/PIE.htc); 
+}
+
+input:focus, select:focus, textarea:focus {
+	background-color: #ffffcc;
+	border: 1px solid red;
+}
+
+.submit{
+	border:1px solid #777;
+	padding: 4px 10px;
+	color: #fff;
+	cursor: pointer;
+	background: #428ec9;
+	border-radius: 5px;
+
+	/* Webkit */
+	background: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		from(#99c9e5),
+		to(#428ec9)
+	);
+	-webkit-border-radius: 5px;
+	-webkit-box-shadow: 1px 1px 1px #fff;
+
+	/* Firefox */
+	background: -moz-linear-gradient(
+		top,
+		#99c9e5,
+		#428ec9
+	);
+	-moz-border-radius: 5px;
+	-moz-box-shadow: 1px 1px 1px #fff;
+ 
+	/* IE */
+	filter:progid:DXImageTransform.Microsoft.gradient
+		(startColorstr=#ff99c9e5,endColorstr=#ff428ec9);
+	zoom: 1;
+}
+ 
+.checkbox,.radio{
+	z-index: -1;
+	position: absolute;
+}
+
+.LabelSelected,.RadioSelected{
+	background-position: bottom left;
+}

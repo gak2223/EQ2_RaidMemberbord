@@ -1,0 +1,186 @@
+<html>
+	<head>
+		<title>開催日: {{ kaisaibi }}({{ youbi }})</title>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+		<script type="text/javascript" src="../script/jquery/jQselectable.js"></script>
+		<script type="text/javascript" src="../script/jquery/jquery.validate.min.js"></script>
+		<script type="text/javascript" src="../script/jquery/additional-methods.js"></script>
+		<script type="text/javascript" src="../script/jquery/messages_ja.js"></script>
+		<script type="text/javascript" src="../script/jquery/jquery.selectable.js"></script>
+		<script type="text/javascript" src="../script/jquery/jquery.validateform.js"></script>
+		<link type="text/css" href="../script/css/style.css" rel="stylesheet"/>
+		<link type="text/css" href="../script/css/style2.css" rel="stylesheet"/>
+		<link type="text/css" href="../script/skin/selectable/style.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<br>
+			<strong>開催日: {{ kaisaibi }}({{ youbi }})</strong>
+		<br>
+		<br>
+		<form id="dogform" action="/insert/post" method="post">
+			<div>
+				名前：<input type="text" class="required text" name="chara_name" id="chara_name">
+			</div>
+			<div>
+				クラス：<select name="chara_class" id="chara_class" class="selectable">
+				{{ clstag|safe }}
+				</select>
+			</div>
+			<div>参加：
+				{{ snktag|safe }}
+			</div>
+			<div>
+				コメント:<br><textarea name="comment_text" rows="6" cols="30"></textarea>
+			</div>
+			<div>
+			  	<input type="submit" value="決定" />
+			  	<input type="button" value="戻る" / onClick="location.href='../'">
+			</div>
+			<div>
+				<input type="hidden" name="kaisaibi" value="{{ kaisaibi }}"/>
+			</div>
+	 	</form>
+<br>
+<br>
+<br>
+参加　{{ sankacnt }}　名
+	<table border>
+		<tr STYLE="background-color:#F08080">
+			<th>ファイター:{{ sankafcnt }}名</th><th>クラス</th><th>コメント</th><th>更新日時</th><th>編集</th><th>削除</th>
+		</tr>
+		{% for c in sankaf %}
+		<tr STYLE="background-color:#FFE4E1">
+			<td>{{ c.chara_name|escape }}</td> 
+			<td>{{ c.chara_class|escape }}</td> 
+			<td width="400">{% if c.comment_text %}{{ c.comment_text|linebreaks|wordwrap:20 }}{% else %}<br>{% endif %}</td> 
+			<td>{{ c.tourokudate_text|escape }}</td>
+			<td><a href="/edit?sankaid={{ c.key.id }}">編集</a></td> 
+			<td><a href="/delete?sankaid={{ c.key.id }}">削除</a></td> 
+		</tr>
+		{% endfor %}
+
+		<tr STYLE="background-color:#F0E68C">
+			<th>スカウト:{{ sankascnt }}名</th><th>クラス</th><th>コメント</th><th>更新日時</th><th>編集</th><th>削除</th>
+		</tr>
+		{% for c in sankas %}
+		<tr STYLE="background-color:#FFFACD">
+			<td>{{ c.chara_name|escape }}</td> 
+			<td>{{ c.chara_class|escape }}</td> 
+			<td width="400">{% if c.comment_text %}{{ c.comment_text|linebreaks|wordwrap:20 }}{% else %}<br>{% endif %}</td> 
+			<td>{{ c.tourokudate_text|escape }}</td>
+			<td><a href="/edit?sankaid={{ c.key.id }}">編集</a></td> 
+			<td><a href="/delete?sankaid={{ c.key.id }}">削除</a></td> 
+		</tr>
+		{% endfor %}
+
+		<tr STYLE="background-color:#9ACD32">
+			<th>プリースト:{{ sankapcnt }}名</th><th>クラス</th><th>コメント</th><th>更新日時</th><th>編集</th><th>削除</th>
+		</tr>
+		{% for c in sankap %}
+		<tr STYLE="background-color:#98FB98">
+			<td>{{ c.chara_name|escape }}</td> 
+			<td>{{ c.chara_class|escape }}</td> 
+			<td width="400">{% if c.comment_text %}{{ c.comment_text|linebreaks|wordwrap:20 }}{% else %}<br>{% endif %}</td> 
+			<td>{{ c.tourokudate_text|escape }}</td>
+			<td><a href="/edit?sankaid={{ c.key.id }}">編集</a></td> 
+			<td><a href="/delete?sankaid={{ c.key.id }}">削除</a></td> 
+		</tr>
+		{% endfor %}
+
+		<tr STYLE="background-color:#87CEFA">
+			<th>メイジ:{{ sankamcnt }}名</th><th>クラス</th><th>コメント</th><th>更新日時</th><th>編集</th><th>削除</th>
+		</tr>
+		{% for c in sankam %}
+		<tr STYLE="background-color:#E0FFFF">
+			<td>{{ c.chara_name|escape }}</td> 
+			<td>{{ c.chara_class|escape }}</td> 
+			<td width="400">{% if c.comment_text %}{{ c.comment_text|linebreaks|wordwrap:20 }}{% else %}<br>{% endif %}</td> 
+			<td>{{ c.tourokudate_text|escape }}</td>
+			<td><a href="/edit?sankaid={{ c.key.id }}">編集</a></td> 
+			<td><a href="/delete?sankaid={{ c.key.id }}">削除</a></td> 
+		</tr>
+		{% endfor %}
+	</table>
+<br>
+<br>
+遅刻　{{ hoketsucnt }}　名
+	<table border>
+		<tr STYLE="background-color:#F08080">
+			<th>ファイター:{{ hoketsufcnt }}名</th><th>クラス</th><th>コメント</th><th>更新日時</th><th>編集</th><th>削除</th>
+		</tr>
+		{% for c in hoketsuf %}
+		<tr STYLE="background-color:#FFE4E1">
+			<td>{{ c.chara_name|escape }}</td> 
+			<td>{{ c.chara_class|escape }}</td> 
+			<td width="400">{% if c.comment_text %}{{ c.comment_text|linebreaks|wordwrap:20 }}{% else %}<br>{% endif %}</td> 
+			<td>{{ c.tourokudate_text|escape }}</td>
+			<td><a href="/edit?sankaid={{ c.key.id }}">編集</a></td> 
+			<td><a href="/delete?sankaid={{ c.key.id }}">削除</a></td> 
+		</tr>
+		{% endfor %}
+
+		<tr STYLE="background-color:#F0E68C">
+			<th>スカウト:{{ hoketsuscnt }}名</th><th>クラス</th><th>コメント</th><th>更新日時</th><th>編集</th><th>削除</th>
+		</tr>
+		{% for c in hoketsus %}
+		<tr STYLE="background-color:#FFFACD">
+			<td>{{ c.chara_name|escape }}</td> 
+			<td>{{ c.chara_class|escape }}</td> 
+			<td width="400">{% if c.comment_text %}{{ c.comment_text|linebreaks|wordwrap:20 }}{% else %}<br>{% endif %}</td> 
+			<td>{{ c.tourokudate_text|escape }}</td>
+			<td><a href="/edit?sankaid={{ c.key.id }}">編集</a></td> 
+			<td><a href="/delete?sankaid={{ c.key.id }}">削除</a></td> 
+		</tr>
+		{% endfor %}
+
+		<tr STYLE="background-color:#9ACD32">
+			<th>プリースト:{{ hoketsupcnt }}名</th><th>クラス</th><th>コメント</th><th>更新日時</th><th>編集</th><th>削除</th>
+		</tr>
+		{% for c in hoketsup %}
+		<tr STYLE="background-color:#98FB98">
+			<td>{{ c.chara_name|escape }}</td> 
+			<td>{{ c.chara_class|escape }}</td> 
+			<td width="400">{% if c.comment_text %}{{ c.comment_text|linebreaks|wordwrap:20 }}{% else %}<br>{% endif %}</td> 
+			<td>{{ c.tourokudate_text|escape }}</td>
+			<td><a href="/edit?sankaid={{ c.key.id }}">編集</a></td> 
+			<td><a href="/delete?sankaid={{ c.key.id }}">削除</a></td> 
+		</tr>
+		{% endfor %}
+
+		<tr STYLE="background-color:#87CEFA">
+			<th>メイジ:{{ hoketsumcnt }}名</th><th>クラス</th><th>コメント</th><th>更新日時</th><th>編集</th><th>削除</th>
+		</tr>
+		{% for c in hoketsum %}
+		<tr STYLE="background-color:#E0FFFF">
+			<td>{{ c.chara_name|escape }}</td> 
+			<td>{{ c.chara_class|escape }}</td> 
+			<td width="400">{% if c.comment_text %}{{ c.comment_text|linebreaks|wordwrap:20 }}{% else %}<br>{% endif %}</td> 
+			<td>{{ c.tourokudate_text|escape }}</td>
+			<td><a href="/edit?sankaid={{ c.key.id }}">編集</a></td> 
+			<td><a href="/delete?sankaid={{ c.key.id }}">削除</a></td> 
+		</tr>
+		{% endfor %}
+	</table>
+<br>
+<br>
+お休み
+	<table border>
+		<tr STYLE="background-color:#A9A9A9">
+			<th>お休み:{{ yasumicnt }}名</th><th>クラス</th><th>コメント</th><th>更新日時</th><th>編集</th><th>削除</th>
+		</tr>
+		{% for c in yasumi %}
+		<tr STYLE="background-color:#F5F5F5">
+			<td>{{ c.chara_name|escape }}</td> 
+			<td>{{ c.chara_class|escape }}</td> 
+			<td width="400">{% if c.comment_text %}{{ c.comment_text|linebreaks|wordwrap:20 }}{% else %}<br>{% endif %}</td> 
+			<td>{{ c.tourokudate_text|escape }}</td>
+			<td><a href="/edit?sankaid={{ c.key.id }}">編集</a></td> 
+			<td><a href="/delete?sankaid={{ c.key.id }}">削除</a></td> 
+		</tr>
+		{% endfor %}
+	</table>
+	</body>
+</html>
+

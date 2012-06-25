@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<title>DoGRaid出欠申請ページ</title>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+		<script type="text/javascript" src="../script/jquery/jquery.validate.min.js"></script>
+		<script type="text/javascript" src="../script/jquery/additional-methods.js"></script>
+		<script type="text/javascript" src="../script/jquery/messages_ja.js"></script>
+		<script type="text/javascript" src="../script/jquery/jquery.datepicker.js"></script>
+		<script type="text/javascript" src="../script/jquery/jquery.validateform.js"></script>
+		<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css" rel="stylesheet" />
+		<link type="text/css" href="../script/css/style.css" rel="stylesheet">
+		<link type="text/css" href="../script/css/style2.css" rel="stylesheet"/>
+		<link type="text/css" href="../script/skin/selectable/style.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<form id="dogform" action="/post" method="post">
+			<div>開催日：<input type="text" class="required text" id="datepicker" name="kaisaibi" value = {{defdate}}></div>
+			<div><input type="submit" value="日程決定" /></div>
+		</form>
+	</body>
+</html>
+
